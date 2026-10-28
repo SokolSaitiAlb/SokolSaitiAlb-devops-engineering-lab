@@ -7,4 +7,4 @@ select = ["E4", "E7", "E9", "F", "I", "UP", "B", "S"]
 ignore = ["E501", "S104"]
 
 [tool.ruff.lint.per-file-ignores]
-"app/tests/*.py" = ["S101"]
+"app/tests/*.py" = ["S101", "S310"]
