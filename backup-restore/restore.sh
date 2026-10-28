@@ -6,7 +6,7 @@ if [[ $# -ne 1 ]]; then
   exit 2
 fi
 backup_file="$1"
-target_file="${{DATA_FILE:-.local-data/notes.json}"
+target_file="${DATA_FILE:-.local-data/notes.json}"
 
 if [[ ! -f "$backup_file" ]]; then
   printf 'Backup file does not exist: %s\n' "$backup_file" >&2

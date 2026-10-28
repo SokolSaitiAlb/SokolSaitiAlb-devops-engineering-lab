@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source_file="${{DATA_FILE:-.local-data/notes.json}"
-backup_dir="${{BACKUP_DIR:-backups}"
+source_file="${DATA_FILE:-.local-data/notes.json}"
+backup_dir="${BACKUP_DIR:-backups}"
 
 if [[ ! -f "$source_file" ]]; then
   printf 'Source data file does not exist: %s\n' "$source_file" >&2
