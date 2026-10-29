@@ -1,0 +1,35 @@
+[Unit]
+Description=Ops Notes API demonstration service
+After=network.target
+
+[Service]
+Type=simple
+User=ops-notes
+Group=ops-notes
+WorkingDirectory=/opt/ops-notes-api
+EnvironmentFile=-/etc/ops-notes-api/ops-notes-api.env
+Environment=HOST=127.0.0.1
+Environment=PORT=8080
+Environment=DATA_FILE=/var/lib/ops-notes-api/notes.json
+Environment=APP_VERSION=0.1.0
+ExecStart=/usr/bin/python3 /opt/ops-notes-api/app/src/service.py
+Restart=on-failure
+RestartSec=2s
+TimeoutStopSec=10s
+UMask=0077
+
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+LockPersonality=true
+RestrictSUIDSGID=true
+RestrictAddressFamilies=AF_INET AF_INET6
+ReadWritePaths=/var/lib/ops-notes-api
+
+[Install]
+WantedBy=multi-user.target
