@@ -1,0 +1,36 @@
+DAY 1 PROGRESS
+Date: October 31, 2026
+Project: DevOps Homelab
+
+PROGRESS SUMMARY
+
+The initial system audit was completed.
+
+Completed tasks:
+- Created the `devops-homelab` workspace structure.
+- Created and executed the `system-health.sh` Bash utility.
+- Passed the Bash syntax validation using `bash -n`.
+- Completed the baseline audit covering Linux, CPU, memory (RAM), BTRFS storage, and networking.
+- Identified active services and listening ports.
+- Verified that Podman is running in rootless mode (`true`).
+- Identified a potential Netdata exposure issue: the service is listening on all network interfaces.
+- Confirmed that UFW is not active and is not currently applying firewall rules.
+
+STATUS
+
+Day 1 baseline audit: COMPLETED
+
+SECURITY NOTES
+
+Netdata listening on all interfaces may make its dashboard reachable from the local network. This does not, by itself, prove that it is exposed to the public internet. Review and restrict its bind address before making firewall changes.
+
+UFW is currently inactive. Review required network services and connectivity needs before enabling firewall rules.
+
+NEXT SESSION
+
+- Review the current Netdata configuration.
+- Restrict Netdata access to localhost, if appropriate.
+- Plan and test UFW rules while preserving required services.
+- Review and improve the Bash audit utilities.
+- Document the results and commit the Day 1 work.
+
